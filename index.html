@@ -281,8 +281,8 @@
                 const name = prompt('Enter your name:');
                 const email = prompt('Enter your email:');
                 const guests = prompt('Enter the number of guests:');
-                const date = prompt('Enter the desired date:');
-    
+                const check_in_date= prompt('Enter the desired date:');
+                const check_out_date = prompt('Enter the desired date:');
                 // Send data to server using AJAX
                 fetch('/reserveTable', {
                     method: 'POST',
