@@ -200,7 +200,7 @@
                 <div class="section__container footer__container">
                   <div class="footer__col">
                     <div class="logo">
-                      <a href="#home"><img src="assets/logo.png" alt="logo" /></a>
+                      <a href="#home"><img src="assets/logo.jpg" alt="logo" /></a>
                     </div>
                     <p class="section__description">
                       Discover a world of comfort, luxury, and adventure as you explore
@@ -249,5 +249,61 @@
               <script src="https://unpkg.com/scrollreveal"></script>
         <!-- Link the external JavaScript file -->
         <script src="script.js"></script>
+        <script>
+            function bookNow() {
+                const name = prompt('Enter your name:');
+                const email = prompt('Enter your email:');
+                const date = prompt('Enter the desired date:');
+    
+                // Send data to server using AJAX
+                fetch('/bookNow', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, date }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+    
+            function reserveTable() {
+                const name = prompt('Enter your name:');
+                const email = prompt('Enter your email:');
+                const guests = prompt('Enter the number of guests:');
+                const date = prompt('Enter the desired date:');
+    
+                // Send data to server using AJAX
+                fetch('/reserveTable', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, guests, date }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
     </body>
 </html>
